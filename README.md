@@ -20,6 +20,7 @@ A lightweight yet powerful web app for discovering, browsing, and managing anime
 git clone https://github.com/yourusername/your-repo-name.git
 ```
 2. Open `index.html` in your browser.
+3. Get licence.txt from owner.
 
 ## 📦 Deployment
 Upload all files to GitHub and enable GitHub Pages in your repository settings.
