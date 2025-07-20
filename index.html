@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Thembeni Manganye" />
+  <meta name="copyright" content="© 2025 Thembeni Manganye" />
+  <meta name="description" content="Discover and manage your favorite anime with Anime Discovery Lean & Advanced." />
+  <title>Anime Discovery Lean & Advanced</title>
+  <style>
+    /* Styles unchanged */
+  </style>
+</head>
+<body data-theme="dark">
+  <header>Anime Discovery Lean & Advanced</header>
+  <div class="container">
+    <input id="searchInput" placeholder="Search anime..." />
+    <label for="genreSelect">Genre</label>
+    <div class="filters">
+      <select id="genreSelect" multiple></select>
+      <select id="typeSelect">
+        <option value="">All Types</option>
+        <option value="tv">TV</option>
+        <option value="movie">Movie</option>
+        <option value="ova">OVA</option>
+        <option value="special">Special</option>
+      </select>
+    </div>
+    <div class="options">
+      <button id="searchBtn">🔍 Search</button>
+      <button id="upcomingBtn">📅 Upcoming</button>
+      <button id="favoritesBtn">⭐ Favorites</button>
+      <button id="exportBtn">📤 Export Favorites</button>
+      <button id="importBtn">📥 Import Favorites</button>
+      <button id="themeBtn">🌓 Theme</button>
+      <button id="shareBtn">📤 Share</button>
+    </div>
+    <main id="results" class="results" role="main"></main>
+  </div>
+  <div class="modal" id="modal" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
