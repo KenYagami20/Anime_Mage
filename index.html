@@ -8,12 +8,181 @@
   <meta name="description" content="Discover and manage your favorite anime with Anime Discovery Lean & Advanced." />
   <title>Anime Discovery Lean & Advanced</title>
   <style>
-    /* Styles unchanged */
+    :root {
+      --bg: #1e1e2f;
+      --text: #fff;
+      --card: #2e2e40;
+      --accent: #ff4081;
+      --badge-bg: #ff3366;
+      --badge-text: #fff;
+    }
+    [data-theme="light"] {
+      --bg: #f9f9f9;
+      --text: #000;
+      --card: #fff;
+      --accent: #6200ea;
+      --badge-bg: #6200ea;
+    }
+    body {
+      margin: 0; padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    header {
+      background: var(--card);
+      padding: 1em;
+      font-size: 1.5em;
+      font-weight: bold;
+      text-align: center;
+    }
+    .container {
+      padding: 1em;
+      max-width: 900px;
+      margin: auto;
+    }
+    input, select, button {
+      width: 100%;
+      margin: 0.3em 0;
+      padding: 0.8em;
+      border-radius: 8px;
+      border: none;
+      font-size: 1em;
+    }
+    button {
+      background: var(--accent);
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      box-shadow: 0 0 8px var(--accent);
+    }
+    .filters, .options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5em;
+    }
+    .filters select, .options button {
+      flex: 1 1 48%;
+    }
+    .results {
+      margin-top: 1em;
+    }
+    .card {
+      background: var(--card);
+      padding: 1em;
+      margin-bottom: 1em;
+      border-radius: 12px;
+      text-align: center;
+      position: relative;
+    }
+    .card img {
+      max-width: 240px;
+      width: 100%;
+      border-radius: 10px;
+    }
+    .title {
+      font-weight: 700;
+      margin: 0.5em 0;
+    }
+    .info {
+      font-size: 0.9em;
+    }
+    .badge {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: var(--badge-bg);
+      color: var(--badge-text);
+      padding: 0.2em 0.6em;
+      font-size: 0.8em;
+      border-radius: 12px;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.7);
+      justify-content: center;
+      align-items: center;
+      padding: 1em;
+      z-index: 9999;
+    }
+    .modal.active {
+      display: flex;
+    }
+    .modal-content {
+      background: var(--card);
+      padding: 1em;
+      border-radius: 12px;
+      max-width: 600px;
+      width: 100%;
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      top: 10px; right: 10px;
+      background: transparent;
+      border: none;
+      font-size: 1.5em;
+      color: var(--text);
+      cursor: pointer;
+    }
+    video {
+      width: 100%;
+      border-radius: 10px;
+      background: black;
+      margin-top: 10px;
+    }
+    .player-controls {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.5em;
+      margin-top: 0.5em;
+    }
+    .player-controls select, .player-controls button {
+      flex: 1 1 auto;
+      font-size: 0.9em;
+      padding: 0.5em;
+      border-radius: 6px;
+    }
+    label {
+      font-weight: 600;
+      display: block;
+      margin-top: 1em;
+    }
+    textarea {
+      width: 100%;
+      height: 80px;
+      border-radius: 8px;
+      border: none;
+      padding: 0.5em;
+      font-family: inherit;
+    }
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3em;
+      margin-top: 0.5em;
+    }
+    .tag {
+      background: var(--accent);
+      padding: 0.2em 0.6em;
+      border-radius: 12px;
+      font-size: 0.8em;
+    }
+    @media (max-width: 600px) {
+      .filters select, .options button {
+        flex: 1 1 100%;
+      }
+    }
   </style>
 </head>
 <body data-theme="dark">
   <header>Anime Discovery Lean & Advanced</header>
   <div class="container">
+    <label for="searchInput">Search Anime</label>
     <input id="searchInput" placeholder="Search anime..." />
     <label for="genreSelect">Genre</label>
     <div class="filters">
